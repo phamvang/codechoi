@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bạn có thích tôi không?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
+      background-size: 400% 400%;
+      animation: bgMove 15s ease infinite;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: 80px;
+      background: linear-gradient(90deg, #ff6ec4, #7873f5, #42e695, #3bb2b8);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 6s ease-in-out infinite;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    @keyframes shine {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .buttons {
+      position: relative;
+      width: 100%;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 80px;
+    }
+
+    button {
+      padding: 20px 50px;
+      font-size: 1.6rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      position: absolute;
+    }
+
+    #yesBtn {
+      background: linear-gradient(45deg, #00c9ff, #92fe9d);
+      color: #fff;
+      left: 35%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+    }
+
+    #noBtn {
+      background: linear-gradient(45deg, #ff5858, #f09819);
+      color: #fff;
+      left: 65%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+    }
+
+    button:hover {
+      filter: brightness(1.1);
+      transform: translate(-50%, -50%) scale(1.07);
+    }
+
+    button:active {
+      transform: translate(-50%, -50%) scale(0.95);
+    }
+
+    #trollScreen {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: linear-gradient(to bottom right, #ffe0ec, #e0f7ff);
+      color: #ff4081;
+      width: 100vw;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-size: 3rem;
+      font-weight: bold;
+      z-index: 999;
+      text-align: center;
+    }
+#trollScreen .cat {
+  position: absolute;
+  bottom: 20px;
+  left: -150px;
+  font-size: 100px;
+  animation: catWalk 8s linear infinite;
+}
+
+@keyframes catWalk {
+  0% {
+    left: -150px;
+    transform: translateY(0) scaleX(1);
+  }
+  25% {
+    transform: translateY(-20px) scaleX(1);
+  }
+  50% {
+    left: 50vw;
+    transform: translateY(0) scaleX(1);
+  }
+  75% {
+    transform: translateY(-20px) scaleX(1);
+  }
+  100% {
+    left: 120vw;
+    transform: translateY(0) scaleX(1);
+  }
+}
+
+#trollScreen .bus-container {
+  position: absolute;
+  bottom: 100px;
+  left: -200px;
+  width: 200px;
+  height: 100px;
+  animation: busDrive 10s linear infinite;
+}
+
+@keyframes busDrive {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(120vw); }
+}
+
+#trollScreen .bus {
+  font-size: 120px;
+  position: absolute;
+}
+
+.wheel {
+  position: absolute;
+  bottom: 10px;
+  width: 25px;
+  height: 25px;
+  background: radial-gradient(circle, #333 60%, #111);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.wheel.left {
+  left: 20px;
+}
+
+.wheel.right {
+  right: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+    /* Emoji floating */
+    .emoji {
+      position: absolute;
+      bottom: -50px;
+      font-size: 2.5rem;
+      animation: floatUp 6s linear forwards;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bạn có thích tôi không?</h1>
+  <div class="buttons">
+    <button id="yesBtn">💖 Có</button>
+    <button id="noBtn">🙅 Không</button>
+  </div>
+
+<div id="trollScreen">
+  <div class="troll-text">Tôi biết mà 😘</div>
+  <div class="troll-text">Bạn thích tôi thật rồi 💖</div>
+
+  <!-- Mèo biết đi -->
+  <!-- <div class="cat">🐈</div> -->
+
+  <!-- Xe buýt chạy ngang -->
+  <div class="bus-container">
+    <div class="bus">🚌</div>
+    <div class="wheel left"></div>
+    <div class="wheel right"></div>
+  </div>
+</div>
+
+  <script>
+ const yesBtn = document.getElementById('yesBtn');
+const noBtn = document.getElementById('noBtn');
+const trollScreen = document.getElementById('trollScreen');
+const container = document.querySelector('.buttons');
+
+let yesScale = 1;
+
+noBtn.addEventListener('mouseover', () => {
+  yesScale += 0.3;
+  yesBtn.style.transform = `translate(-50%, -50%) scale(${yesScale})`;
+
+  // Nếu nút Có quá to thì ẩn nút Không
+  if (yesScale > 8) {
+    noBtn.style.display = 'none';
+  }
+});
+
+document.addEventListener('mousemove', (e) => {
+  const mouseX = e.clientX;
+  const mouseY = e.clientY;
+  const noRect = noBtn.getBoundingClientRect();
+  const btnCenterX = noRect.left + noRect.width / 2;
+  const btnCenterY = noRect.top + noRect.height / 2;
+  const distance = Math.hypot(mouseX - btnCenterX, mouseY - btnCenterY);
+  if (distance < 100) {
+    const containerRect = container.getBoundingClientRect();
+    const maxLeft = containerRect.width - noBtn.offsetWidth;
+    const maxTop = containerRect.height - noBtn.offsetHeight;
+    const randomLeft = Math.random() * maxLeft;
+    const randomTop = Math.random() * maxTop;
+    noBtn.style.left = `${randomLeft}px`;
+    noBtn.style.top = `${randomTop}px`;
+  }
+});
+
+yesBtn.addEventListener('click', () => {
+  document.body.innerHTML = '';
+  document.body.appendChild(trollScreen);
+  trollScreen.style.display = 'flex';
+  launchEmojiRain();
+});
+
+function launchEmojiRain() {
+  const emojis = ['❤️','🎈','🌹','💗','💕'];
+
+  setInterval(() => {
+    const emoji = document.createElement('div');
+    emoji.classList.add('emoji');
+    emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+    emoji.style.left = Math.random() * 100 + 'vw';
+    emoji.style.fontSize = (Math.random() * 30 + 20) + 'px';
+    trollScreen.appendChild(emoji);
+    setTimeout(() => emoji.remove(), 7000);
+  }, 300);
+
+  // Xe buýt thả tim
+  setInterval(() => {
+    const hearts = document.createElement('div');
+    hearts.classList.add('emoji');
+    hearts.innerText = '❤️';
+    const bus = document.querySelector('.bus-container');
+    const busRect = bus.getBoundingClientRect();
+    hearts.style.left = (busRect.left + 50) + 'px';
+    hearts.style.bottom = '100px';
+    trollScreen.appendChild(hearts);
+    setTimeout(() => hearts.remove(), 6000);
+  }, 800);
+}
+    
+  </script>
+</body>
+</html>
