@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
   <title>Bạn có thích tôi không?</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <style>
-    html, body {
+    html,
+    body {
       margin: 0;
       padding: 0;
       height: 100%;
@@ -18,9 +20,17 @@
     }
 
     @keyframes bgMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     h1 {
@@ -38,9 +48,17 @@
     }
 
     @keyframes shine {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     .buttons {
@@ -107,76 +125,160 @@
       z-index: 999;
       text-align: center;
     }
-#trollScreen .cat {
-  position: absolute;
-  bottom: 20px;
-  left: -150px;
-  font-size: 100px;
-  animation: catWalk 8s linear infinite;
-}
 
-@keyframes catWalk {
-  0% {
-    left: -150px;
-    transform: translateY(0) scaleX(1);
-  }
-  25% {
-    transform: translateY(-20px) scaleX(1);
-  }
-  50% {
-    left: 50vw;
-    transform: translateY(0) scaleX(1);
-  }
-  75% {
-    transform: translateY(-20px) scaleX(1);
-  }
-  100% {
-    left: 120vw;
-    transform: translateY(0) scaleX(1);
-  }
-}
+    #trollScreen .cat {
+      position: absolute;
+      bottom: 20px;
+      left: -150px;
+      font-size: 100px;
+      animation: catWalk 8s linear infinite;
+    }
 
-#trollScreen .bus-container {
-  position: absolute;
-  bottom: 100px;
-  left: -200px;
-  width: 200px;
-  height: 100px;
-  animation: busDrive 10s linear infinite;
-}
+    @keyframes catWalk {
+      0% {
+        left: -150px;
+        transform: translateY(0) scaleX(1);
+      }
 
-@keyframes busDrive {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(120vw); }
-}
+      25% {
+        transform: translateY(-20px) scaleX(1);
+      }
 
-#trollScreen .bus {
-  font-size: 120px;
-  position: absolute;
-}
+      50% {
+        left: 50vw;
+        transform: translateY(0) scaleX(1);
+      }
 
-.wheel {
-  position: absolute;
-  bottom: 10px;
-  width: 25px;
-  height: 25px;
-  background: radial-gradient(circle, #333 60%, #111);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
+      75% {
+        transform: translateY(-20px) scaleX(1);
+      }
 
-.wheel.left {
-  left: 20px;
-}
+      100% {
+        left: 120vw;
+        transform: translateY(0) scaleX(1);
+      }
+    }
 
-.wheel.right {
-  right: 20px;
-}
+    #trollScreen .bus-container {
+      position: absolute;
+      bottom: 100px;
+      left: -200px;
+      width: 200px;
+      height: 100px;
+      animation: busDrive 10s linear infinite;
+    }
 
-@keyframes spin {
-  0% { transform: rotate(0deg);}
-  100% { transform: rotate(360deg);}
-}
+    @keyframes busDrive {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(120vw);
+      }
+    }
+
+    .bus-container {
+      position: absolute;
+      bottom: 100px;
+      left: -300px;
+      animation: drive 10s linear infinite;
+    }
+
+    .bus {
+      width: 200px;
+      height: 80px;
+      background: #ffcc00;
+      border-radius: 10px;
+      position: relative;
+      box-shadow: 0 10px 0 #e6b800;
+    }
+
+    .windows {
+      width: 30px;
+      height: 30px;
+      background: #ffffff;
+      position: absolute;
+      top: 15px;
+      border-radius: 3px;
+    }
+
+    .windows:nth-child(1) {
+      left: 20px;
+    }
+
+    .windows:nth-child(2) {
+      left: 65px;
+    }
+
+    .windows:nth-child(3) {
+      left: 110px;
+    }
+
+    .wheels {
+      width: 30px;
+      height: 30px;
+      background: #333;
+      border-radius: 50%;
+      position: absolute;
+      bottom: -15px;
+      animation: spin 1s linear infinite;
+    }
+
+    .left {
+      left: 20px;
+    }
+
+    .right {
+      right: 20px;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes drive {
+      0% {
+        left: -300px;
+      }
+
+      100% {
+        left: 120vw;
+      }
+    }
+
+    .troll-text {
+      font-family: 'Comic Sans MS', sans-serif;
+      font-size: 40px;
+      color: #ff4081;
+      text-shadow: 2px 2px #ffe6f0;
+      margin-bottom: 30px;
+    }
+
+    .heart-button {
+      background-color: #ff4d6d;
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 30px;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .heart-button:hover {
+      transform: scale(1.2);
+      background-color: #ff1a4b;
+    }
+
     /* Emoji floating */
     .emoji {
       position: absolute;
@@ -191,6 +293,7 @@
         transform: translateY(0) scale(1);
         opacity: 1;
       }
+
       100% {
         transform: translateY(-120vh) scale(1.5);
         opacity: 0;
@@ -198,6 +301,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <h1>Bạn có thích tôi không?</h1>
@@ -206,91 +310,100 @@
     <button id="noBtn">🙅 Không</button>
   </div>
 
-<div id="trollScreen">
-  <div class="troll-text">Tôi biết mà 😘</div>
-  <div class="troll-text">Bạn thích tôi thật rồi 💖</div>
+  <div id="trollScreen">
+    <div class="troll-text">Tôi biết mà 😘</div>
+     <button class="heart-button" onclick="window.location.href='index.html'">
+      ❤️
+    </button><br>
+    <div class="troll-text">Bạn thích tôi thật rồi 💖</div>
+   
 
-  <!-- Mèo biết đi -->
-  <!-- <div class="cat">🐈</div> -->
+    <!-- Mèo biết đi -->
+    <!-- <div class="cat">🐈</div> -->
 
-  <!-- Xe buýt chạy ngang -->
-  <div class="bus-container">
-    <div class="bus">🚌</div>
-    <div class="wheel left"></div>
-    <div class="wheel right"></div>
+    <!-- Xe buýt chạy ngang -->
+    <div class="bus-container">
+      <div class="bus">
+        <div class="windows"></div>
+        <div class="windows"></div>
+        <div class="windows"></div>
+        <div class="wheels left"></div>
+        <div class="wheels right"></div>
+      </div>
+    </div>
   </div>
-</div>
 
   <script>
- const yesBtn = document.getElementById('yesBtn');
-const noBtn = document.getElementById('noBtn');
-const trollScreen = document.getElementById('trollScreen');
-const container = document.querySelector('.buttons');
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const trollScreen = document.getElementById('trollScreen');
+    const container = document.querySelector('.buttons');
 
-let yesScale = 1;
+    let yesScale = 1;
 
-noBtn.addEventListener('mouseover', () => {
-  yesScale += 0.3;
-  yesBtn.style.transform = `translate(-50%, -50%) scale(${yesScale})`;
+    noBtn.addEventListener('mouseover', () => {
+      yesScale += 0.3;
+      yesBtn.style.transform = `translate(-50%, -50%) scale(${yesScale})`;
 
-  // Nếu nút Có quá to thì ẩn nút Không
-  if (yesScale > 8) {
-    noBtn.style.display = 'none';
-  }
-});
+      // Nếu nút Có quá to thì ẩn nút Không
+      if (yesScale > 8) {
+        noBtn.style.display = 'none';
+      }
+    });
 
-document.addEventListener('mousemove', (e) => {
-  const mouseX = e.clientX;
-  const mouseY = e.clientY;
-  const noRect = noBtn.getBoundingClientRect();
-  const btnCenterX = noRect.left + noRect.width / 2;
-  const btnCenterY = noRect.top + noRect.height / 2;
-  const distance = Math.hypot(mouseX - btnCenterX, mouseY - btnCenterY);
-  if (distance < 100) {
-    const containerRect = container.getBoundingClientRect();
-    const maxLeft = containerRect.width - noBtn.offsetWidth;
-    const maxTop = containerRect.height - noBtn.offsetHeight;
-    const randomLeft = Math.random() * maxLeft;
-    const randomTop = Math.random() * maxTop;
-    noBtn.style.left = `${randomLeft}px`;
-    noBtn.style.top = `${randomTop}px`;
-  }
-});
+    document.addEventListener('mousemove', (e) => {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      const noRect = noBtn.getBoundingClientRect();
+      const btnCenterX = noRect.left + noRect.width / 2;
+      const btnCenterY = noRect.top + noRect.height / 2;
+      const distance = Math.hypot(mouseX - btnCenterX, mouseY - btnCenterY);
+      if (distance < 100) {
+        const containerRect = container.getBoundingClientRect();
+        const maxLeft = containerRect.width - noBtn.offsetWidth;
+        const maxTop = containerRect.height - noBtn.offsetHeight;
+        const randomLeft = Math.random() * maxLeft;
+        const randomTop = Math.random() * maxTop;
+        noBtn.style.left = `${randomLeft}px`;
+        noBtn.style.top = `${randomTop}px`;
+      }
+    });
 
-yesBtn.addEventListener('click', () => {
-  document.body.innerHTML = '';
-  document.body.appendChild(trollScreen);
-  trollScreen.style.display = 'flex';
-  launchEmojiRain();
-});
+    yesBtn.addEventListener('click', () => {
+      document.body.innerHTML = '';
+      document.body.appendChild(trollScreen);
+      trollScreen.style.display = 'flex';
+      launchEmojiRain();
+    });
 
-function launchEmojiRain() {
-  const emojis = ['❤️','🎈','🌹','💗','💕'];
+    function launchEmojiRain() {
+      const emojis = ['❤️', '🎈', '🌹', '💗', '💕'];
 
-  setInterval(() => {
-    const emoji = document.createElement('div');
-    emoji.classList.add('emoji');
-    emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-    emoji.style.left = Math.random() * 100 + 'vw';
-    emoji.style.fontSize = (Math.random() * 30 + 20) + 'px';
-    trollScreen.appendChild(emoji);
-    setTimeout(() => emoji.remove(), 7000);
-  }, 300);
+      setInterval(() => {
+        const emoji = document.createElement('div');
+        emoji.classList.add('emoji');
+        emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        emoji.style.left = Math.random() * 100 + 'vw';
+        emoji.style.fontSize = (Math.random() * 30 + 20) + 'px';
+        trollScreen.appendChild(emoji);
+        setTimeout(() => emoji.remove(), 7000);
+      }, 300);
 
-  // Xe buýt thả tim
-  setInterval(() => {
-    const hearts = document.createElement('div');
-    hearts.classList.add('emoji');
-    hearts.innerText = '❤️';
-    const bus = document.querySelector('.bus-container');
-    const busRect = bus.getBoundingClientRect();
-    hearts.style.left = (busRect.left + 50) + 'px';
-    hearts.style.bottom = '100px';
-    trollScreen.appendChild(hearts);
-    setTimeout(() => hearts.remove(), 6000);
-  }, 800);
-}
-    
+      // Xe buýt thả tim
+      setInterval(() => {
+        const heart = document.createElement('div');
+        heart.classList.add('emoji');
+        heart.innerText = '❤️';
+        const bus = document.querySelector('.bus-container');
+        const busRect = bus.getBoundingClientRect();
+        heart.style.left = (busRect.left + 150) + 'px';
+        heart.style.bottom = '130px';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+      }, 1000);
+    }
+
   </script>
 </body>
+
 </html>
